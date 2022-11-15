@@ -4,25 +4,31 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class recipt {
-	int wart1 , wart2 , wart3 , wart4 ,total;
-	float discountprice ,  payment;
+	int wart1 , wart2 , wart3 , wart4 ,total , ordernum;
+static	float discountprice   ,  payment;
+	public void discount (float discountprice) {
 	
-	public void wart1 (int wart1 ,int wart2 ,int wart3 ,int wart4 ,int total ) {
-		this.wart1 = wart1; this.wart2 = wart2; this.wart3 =wart3; this.wart4 = wart4;
+	}
+	public static final  String ANSI_reset = "\u001B[0m"; 
+	public static final String ANSI_blue =  "\u001B[36m";
+	public static final String ANSI_purple = "\u001B[45m";
+	public void wart (int wart1 ,int wart2 ,int wart3 ,int wart4 ,int total , int ordernum) {
+		this.wart1 = wart1; this.wart2 = wart2; this.wart3 =wart3; this.wart4 = wart4 ; this.ordernum = ordernum;
 	}
 	public void payment(float payment) {
 		this.payment = payment;
 	}
-		public static void recipt(int wart1 ,int wart2 ,int wart3 ,int wart4 ,int total , float  discountprice ,float payment) {
+		public static void recipt(int wart1 ,int wart2 ,int wart3 ,int wart4 ,int total , float  discountprice ,float payment , int ordernum) {
 			DateFormat date_format_obj = new SimpleDateFormat("MMMM/dd/yy hh:mm:a");
 	        Date date_obj = new Date();
 			
 			float dis = total-discountprice;
-			float finalprice = (payment-dis);
+			float finalprice = (payment - dis);
 	                System.out.println("_______________________________________________");
-	                System.out.println("             Sij's Coffee Shop");
+	                System.out.println(ANSI_blue +"             Sij's Coffee Shop" + ANSI_reset);
 			System.out.println();
 					System.out.println("          "+ date_format_obj.format(date_obj));
+					System.out.println("Order Number : " + ordernum);
 			System.out.println();
 			 
 			System.out.println(" QTY      Description        Price    Total");
@@ -51,15 +57,14 @@ public class recipt {
 			System.out.println(" Money            :                    P" + payment);
 			System.out.println(" Change           :                    P" +finalprice);
 			System.out.println();
-			System.out.println(" Thank You For Buying from Sij's Coffee Shop");
+			System.out.println(ANSI_purple+" Thank You For Buying from Sij's Coffee Shop" + ANSI_reset);
 			System.out.println();
 			System.out.println("_______________________________________________");
 			
-		
-
+	
+			
 		}
 	
-	
-	
-	
+		
+
 }
